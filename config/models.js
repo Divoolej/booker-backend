@@ -29,4 +29,12 @@ module.exports.models = {
   ***************************************************************************/
   // migrate: 'alter'
 
+  associations: {
+    list: 'link',
+    detail: 'record'
+  },
+
+  validations: {
+    ignoreProperties: ['includeIn']
+  }
 };
