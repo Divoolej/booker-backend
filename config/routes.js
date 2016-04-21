@@ -35,7 +35,17 @@ module.exports.routes = {
   '/': {
     controller: 'home',
     action: 'hello',
-  }
+  },
+
+  'GET /visits/:id?': {
+    controller: 'visits',
+    action: 'find',
+  },
+
+  'POST /visits': {
+    controller: 'visits',
+    action: 'create',
+  },
 
   /***************************************************************************
   *                                                                          *
