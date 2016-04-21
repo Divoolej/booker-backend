@@ -80,7 +80,7 @@ module.exports.connections = {
     user: 'linkie',
     password: 'linkie-password',
     database: 'linkie_development'
-  }
+  },
 
 
   /***************************************************************************

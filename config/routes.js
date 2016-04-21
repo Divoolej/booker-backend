@@ -32,10 +32,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    controller: 'home',
-    action: 'hello',
-  }
+  'POST /auth/facebook': {
+    controller: 'authentications',
+    action: 'facebook'
+  },
 
   /***************************************************************************
   *                                                                          *
