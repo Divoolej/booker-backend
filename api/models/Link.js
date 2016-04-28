@@ -8,7 +8,24 @@
 module.exports = {
 
   attributes: {
+    owner: {
+      model: 'user',
+      required: true
+    },
 
+    category: {
+      model: 'category',
+      required: true
+    },
+
+    url: {
+      type: 'string',
+      required: true
+    },
+
+    title: {
+      type: 'string'
+    },
   }
 };
 
