@@ -27,6 +27,15 @@ module.exports = {
     facebookToken: {
       type: 'string',
       required: true,
+
+    links: {
+      collection: 'link',
+      via: 'owner'
+    },
+
+    categories: {
+      collection: 'category',
+      via: 'owner'
     },
 
     accessToken: {
