@@ -44,5 +44,19 @@ module.exports = {
       return self;
     }
   },
+
+  afterCreate: function(user, next) {
+    this.createDefaultCategory(user, next);
+  },
+
+  createDefaultCategory: function(user, next) {
+    Category.create({
+      name: 'General',
+      owner: user.id
+    }).exec(function(error, category) {
+      if (error) { next(error); }
+      else { next(); }
+    });
+  },
 };
 
