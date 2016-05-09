@@ -21,6 +21,17 @@ module.exports = {
       type: 'string',
       required: true,
     }
-  }
+  },
+
+  afterValidate: function (attributes, next) {
+    Category.findOne({
+      name: attributes.name,
+      owner: attributes.owner
+    }).exec(function(error, category){
+        if(error) return next(error);
+        if(category) return next('Category must be unique in scope of one user.');
+        next(null, attributes);
+    });
+  },
 };
 
