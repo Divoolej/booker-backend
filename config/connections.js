@@ -82,6 +82,13 @@ module.exports.connections = {
     database: 'linkie_development'
   },
 
+  productionPostgresConnection: {
+    adapter: 'sails-postgresql',
+    host: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  },
 
   /***************************************************************************
   *                                                                          *
