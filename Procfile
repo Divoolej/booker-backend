@@ -1,1 +1,1 @@
-web: node start
+web: sails lift
