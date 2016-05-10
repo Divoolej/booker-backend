@@ -18,7 +18,8 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'productionPostgresConnection'
+    connection: 'productionPostgresConnection',
+    migrate: 'alter'
   },
 
   FACEBOOK_APP_ID: process.env.FACEBOOK_APP_ID,
