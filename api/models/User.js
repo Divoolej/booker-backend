@@ -29,9 +29,15 @@ module.exports = {
       required: true,
     },
 
+    accessToken: {
+      type: 'string',
+      required: true,
+    },
+
     toJSON: function() {
       var self = this.toObject();
       delete self.facebookToken;
+      delete self.accessToken;
       return self;
     }
   },
