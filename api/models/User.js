@@ -29,11 +29,25 @@ module.exports = {
       required: true,
     },
 
+    accessToken: {
+      type: 'string',
+      required: true,
+    },
+
     toJSON: function() {
       var self = this.toObject();
       delete self.facebookToken;
+      delete self.accessToken;
       return self;
     }
+  },
+
+  generateAccessToken() {
+    var token = "";
+    for (var i = 0; i < 5; i++) {
+      token += (Math.random()*1000000000000000000).toString(16);
+    }
+    return token; // A TEMPORARY SOLUTION
   },
 };
 

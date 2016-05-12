@@ -14,7 +14,7 @@ module.exports = {
       if (error) {
         return res.json(error);
       }
-      res.json({ users: [user] });
+      res.json({ user: user, accessToken: user.accessToken });
     })(req, res);
   }
 };
