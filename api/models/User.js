@@ -41,5 +41,13 @@ module.exports = {
       return self;
     }
   },
+
+  generateAccessToken() {
+    var token = "";
+    for (var i = 0; i < 5; i++) {
+      token += (Math.random()*1000000000000000000).toString(16);
+    }
+    return token; // A TEMPORARY SOLUTION
+  },
 };
 
