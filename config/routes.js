@@ -74,6 +74,33 @@ module.exports.routes = {
     action: 'destroy'
   },
 
+  // LINKS
+
+  'GET /links': {
+    controller: 'links',
+    action: 'index'
+  },
+
+  'GET /links/:id': {
+    controller: 'links',
+    action: 'show'
+  },
+
+  'POST /links': {
+    controller: 'links',
+    action: 'create'
+  },
+
+  'PUT /links/:id': {
+    controller: 'links',
+    action: 'update'
+  },
+
+  'DELETE /links/:id': {
+    controller: 'links',
+    action: 'destroy'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
