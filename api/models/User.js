@@ -12,30 +12,38 @@ module.exports = {
     facebookId: {
       type: 'string',
       required: true,
+      unique: true
     },
 
     firstName: {
       type: 'string',
-      required: true,
+      required: true
     },
 
     lastName: {
       type: 'string',
-      required: true,
+      required: true
     }, 
 
     facebookToken: {
       type: 'string',
+      required: true
+    },
+
+    accessToken: {
+      type: 'string',
       required: true,
+      unique: true
+    },
 
     links: {
       collection: 'link',
-      via: 'owner'
+      via: 'userId'
     },
 
     categories: {
       collection: 'category',
-      via: 'owner'
+      via: 'userId'
     },
 
     accessToken: {
@@ -66,7 +74,7 @@ module.exports = {
   createDefaultCategory: function(user, next) {
     Category.create({
       name: 'General',
-      owner: user.id
+      userId: user.id
     }).exec(function(error, category) {
       if (error) { next(error); }
       else { next(); }
