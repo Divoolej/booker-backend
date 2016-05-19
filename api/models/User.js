@@ -67,5 +67,14 @@ module.exports = {
       else { next(); }
     });
   },
+
+  generateAccessToken: function() {
+    var token = "";
+    for (var i = 0; i < 50; i++) {
+      token += (Math.random() * 1000.0).toString(32);
+    }
+    return token;
+  },
+
 };
 
