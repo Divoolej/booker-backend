@@ -86,4 +86,23 @@ module.exports = {
     });
   },
 
+  destroy: function(req, res) {
+    User.authenticate(req.headers.auth_token, function(error, user) {
+      if (error || !user) {
+        return res.json(401, null);
+      }
+      var id = req.params.id;
+      Link.findOne({ id: id, userId: user.id }).exec(function(error, link) {
+        if (error || !link) {
+          return res.notFound(error);
+        }
+        Link.destroy({id: link.id}).exec(function(error) {
+          if (error) {
+            return res.navigate(error);
+          }
+          return res.ok();
+        });
+      });
+    });
+  }
 };
