@@ -59,4 +59,31 @@ module.exports = {
     });
   },
 
+  update: function(req, res) {
+    User.authenticate(req.headers.auth_token, function(error, user) {
+      if (error || !user) {
+        return res.json(401, null);
+      }
+      var id = req.params.id;
+      Link.findOne({ id: id, userId: user.id }).exec(function(error, link) {
+        if (error || !link) {
+          return res.notFound(error);
+        }
+        var new_attributes = {
+          title: req.body.title,
+          categoryId: req.body.categoryId
+        };
+        for (var attribute in new_attributes) {
+          link[attribute] = new_attributes[attribute];
+        }
+        link.save(function(error) {
+          if (error) { 
+            return res.json(400, error);
+          }
+          return res.json(link);
+        });
+      });
+    });
+  },
+
 };
