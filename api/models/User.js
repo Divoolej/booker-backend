@@ -76,5 +76,13 @@ module.exports = {
     return token;
   },
 
+  authenticate: function(token, callback) {
+    User.findOne({ accessToken: token }).exec(function(error, user) {
+      if (error) {
+        return callback(error, null);
+      }
+      callback(null, user);
+    });
+  }
 };
 
