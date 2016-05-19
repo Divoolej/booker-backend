@@ -42,5 +42,23 @@ module.exports = {
     }
   },
 
+  create: function(req, res) {
+    User.authenticate(req.headers.auth_token, function(error, user) {
+      if (error || !user) { 
+        return res.forbidden(error);
+      }
+      var attributes = {
+        name: req.body.name,
+        userId: user.id
+      };
+      Category.create(attributes).exec(function(error, category) {
+        if (error) {
+          return res.badRequest(error);
+        }
+        return res.json(201, category);
+      });
+    });
+  },
+
 };
 
