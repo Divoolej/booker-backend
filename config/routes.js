@@ -37,6 +37,11 @@ module.exports.routes = {
     action: 'facebook'
   },
 
+  'GET /users': {
+    controller: 'users',
+    action: 'index'
+  },
+
   'GET /users/:id': {
     controller: 'users',
     action: 'show'
