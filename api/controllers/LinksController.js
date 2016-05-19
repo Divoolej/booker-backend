@@ -20,5 +20,19 @@ module.exports = {
     });
   },
 
+  show: function(req, res) {
+    if (!req.params.id) {
+      return res.notFound();
+    } else {
+      Link.findOne({ id: req.params.id }).exec(function(error, link) {
+        if (error || !link) {
+          return res.notFound();
+        } else {
+          return res.json(link);
+        }
+      });
+    }
+  },
+
 
 };
