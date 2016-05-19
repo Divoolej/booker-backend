@@ -60,5 +60,31 @@ module.exports = {
     });
   },
 
+  update: function(req, res) {
+    User.authenticate(req.headers.auth_token, function(error, user) {
+      if (error || !user) {
+        return res.json(401, null);
+      }
+      var id = req.params.id;
+      Category.findOne({ id: id, userId: user.id }).exec(function(error, category) {
+        if (error || !category) {
+          return res.notFound(error);
+        }
+        var new_attributes = {
+          name: req.body.name
+        };
+        for (var attribute in new_attributes) {
+          category[attribute] = new_attributes[attribute];
+        }
+        category.save(function(error) {
+          if (error) { 
+            return res.json(400, error);
+          }
+          return res.json(category);
+        });
+      });
+    });
+  },
+
 };
 
