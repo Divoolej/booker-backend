@@ -1,4 +1,4 @@
-var passport = require('passport')
+var passport = require('passport');
 var FacebookTokenStrategy = require('passport-facebook-token');
 
 passport.use(new FacebookTokenStrategy({
