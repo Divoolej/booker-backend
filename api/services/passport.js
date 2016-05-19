@@ -1,4 +1,4 @@
-var passport = require('passport')
+var passport = require('passport');
 var FacebookTokenStrategy = require('passport-facebook-token');
 
 passport.use(new FacebookTokenStrategy({
@@ -19,6 +19,7 @@ passport.use(new FacebookTokenStrategy({
             firstName: profile._json.first_name,
             lastName: profile._json.last_name,
             facebookToken: accessToken,
+            accessToken: User.generateAccessToken()
           };
           User.create(attributes).exec(function (error, new_user) {
             return done(error, new_user);
