@@ -8,12 +8,12 @@
 module.exports = {
 
   attributes: {
-    owner: {
+    userId: {
       model: 'user',
       required: true
     },
 
-    category: {
+    categoryId: {
       model: 'category',
       required: true
     },

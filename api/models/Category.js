@@ -9,10 +9,10 @@ module.exports = {
   attributes: {
     links: {
       collection: 'link',
-      via: 'category'
+      via: 'categoryId'
     },
 
-    owner: {
+    userId: {
       model: 'user',
       required: true
     },
@@ -26,7 +26,7 @@ module.exports = {
   afterValidate: function (attributes, next) {
     Category.findOne({
       name: attributes.name,
-      owner: attributes.owner
+      userId: attributes.userId
     }).exec(function(error, category){
         if(error) return next(error);
         if(category) return next('Category must be unique in scope of one user.');
