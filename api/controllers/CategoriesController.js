@@ -22,5 +22,25 @@ module.exports = {
     });
   },
 
+  show: function(req, res) {
+    if (!req.params.id) {
+      return res.notFound();
+    } else {
+      Category.findOne({ id: req.params.id }).exec(function(error, category) {
+        if (error || !category) {
+          return res.notFound();
+        } else {
+          Link.find({categoryId: category.id}).exec(function(error, links) {
+            if (error) {
+              return res.notFound(error);
+            } else {
+              return res.json({category: category, links: links});
+            }
+          });
+        }
+      });
+    }
+  },
+
 };
 
