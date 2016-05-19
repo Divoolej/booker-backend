@@ -47,6 +47,33 @@ module.exports.routes = {
     action: 'show'
   },
 
+  // CATEGORIES
+
+  'GET /categories': {
+    controller: 'categories',
+    action: 'index'
+  },
+
+  'GET /categories/:id': {
+    controller: 'categories',
+    action: 'show'
+  },
+
+  'POST /categories': {
+    controller: 'categories',
+    action: 'create'
+  },
+
+  'PUT /categories/:id': {
+    controller: 'categories',
+    action: 'update'
+  },
+
+  'DELETE /categories/:id': {
+    controller: 'categories',
+    action: 'destroy'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
