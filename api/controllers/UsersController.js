@@ -19,6 +19,16 @@ module.exports = {
         }
       });
     }
+  },
+
+  index: function(req, res) {
+    User.find({}).exec(function(error, users) {
+      if (error) {
+        res.navigate(error);
+      } else {
+        res.json(users);
+      }
+    });
   }
 };
 
