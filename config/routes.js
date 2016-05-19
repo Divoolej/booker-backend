@@ -37,6 +37,70 @@ module.exports.routes = {
     action: 'facebook'
   },
 
+  'GET /users': {
+    controller: 'users',
+    action: 'index'
+  },
+
+  'GET /users/:id': {
+    controller: 'users',
+    action: 'show'
+  },
+
+  // CATEGORIES
+
+  'GET /categories': {
+    controller: 'categories',
+    action: 'index'
+  },
+
+  'GET /categories/:id': {
+    controller: 'categories',
+    action: 'show'
+  },
+
+  'POST /categories': {
+    controller: 'categories',
+    action: 'create'
+  },
+
+  'PUT /categories/:id': {
+    controller: 'categories',
+    action: 'update'
+  },
+
+  'DELETE /categories/:id': {
+    controller: 'categories',
+    action: 'destroy'
+  },
+
+  // LINKS
+
+  'GET /links': {
+    controller: 'links',
+    action: 'index'
+  },
+
+  'GET /links/:id': {
+    controller: 'links',
+    action: 'show'
+  },
+
+  'POST /links': {
+    controller: 'links',
+    action: 'create'
+  },
+
+  'PUT /links/:id': {
+    controller: 'links',
+    action: 'update'
+  },
+
+  'DELETE /links/:id': {
+    controller: 'links',
+    action: 'destroy'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
