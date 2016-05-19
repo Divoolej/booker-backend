@@ -7,11 +7,11 @@
 
 module.exports = {
 	show: function(req, res) {
-    var id = req.param('id')
+    var id = req.param('id');
     if (id) {
       User.findOne(id, function(error, user) {
         if (error) {
-          res.serverError(error);
+          res.notFound(error);
         } else if (user) {
           res.json({ "user": user });
         } else {
