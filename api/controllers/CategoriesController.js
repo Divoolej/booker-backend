@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-	
 	index: function(req, res) {
     var query = {};
     if (req.query.userId) { query.userId = req.query.userId; }
@@ -86,5 +85,27 @@ module.exports = {
     });
   },
 
+  destroy: function(req, res) {
+    User.authenticate(req.headers.auth_token, function(error, user) {
+      if (error || !user) {
+        return res.json(401, null);
+      }
+      var id = req.params.id;
+      Category.findOne({ id: id, userId: user.id }).exec(function(error, category) {
+        if (error || !category) {
+          return res.notFound(error);
+        }
+        Link.destroy({categoryId: category.id}).exec(function(error) {
+          log.error(error);
+        });
+        Category.destroy({id: category.id}).exec(function(error) {
+          if (error) {
+            return res.navigate(error);
+          }
+          return res.ok();
+        });
+      });
+    });
+  }
 };
 
