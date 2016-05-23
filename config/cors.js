@@ -51,6 +51,8 @@ module.exports.cors = {
 
   origin: '*',
 
+  headers: 'AUTH_TOKEN',
+
   /***************************************************************************
   *                                                                          *
   * Allow cookies to be shared for CORS requests?                            *
