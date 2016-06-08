@@ -40,9 +40,9 @@ module.exports = {
         return res.forbidden(error);
       }
       var attributes = {
-        title: req.body.title,
-        url: req.body.url,
-        categoryId: req.body.categoryId,
+        title: req.body.link.title,
+        url: req.body.link.url,
+        categoryId: req.body.link.categoryId,
         userId: user.id
       };
       Category.findOne({ id: attributes.categoryId, userId: attributes.userId }).exec(function(error, category) {
