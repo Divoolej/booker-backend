@@ -51,7 +51,7 @@ module.exports.cors = {
 
   origin: '*',
 
-  headers: 'AUTH_TOKEN',
+  headers: ['AUTH_TOKEN', 'content-type'],
 
   /***************************************************************************
   *                                                                          *
@@ -77,6 +77,6 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  headers: '*'
+  // headers: 'content-type'
 
 };
