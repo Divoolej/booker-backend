@@ -36,6 +36,10 @@ module.exports = {
       unique: true
     },
 
+    avatarUrl: {
+      type: 'string',
+    },
+
     links: {
       collection: 'link',
       via: 'userId'
