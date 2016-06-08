@@ -19,6 +19,7 @@ passport.use(new FacebookTokenStrategy({
             firstName: profile._json.first_name,
             lastName: profile._json.last_name,
             facebookToken: accessToken,
+            avatarUrl: profile.photos[0].value,
             accessToken: User.generateAccessToken()
           };
           User.create(attributes).exec(function (error, new_user) {
